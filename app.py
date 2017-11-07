@@ -96,4 +96,5 @@ def posted():
 
 
 db.create_all()
-app.run(port=5000)
+if __name__ == '__main__':
+    app.run()
