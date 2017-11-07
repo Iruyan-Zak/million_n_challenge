@@ -10,41 +10,44 @@
 </head>
 <body class="no-thank-yu">
 <div class="container">
-<div class="container">
-    <p class="{{ text_class }}"> {{ text_contents }} </p>
-<h1>100万円 山分け問題 ルール</h1>
-<ul>
-    <li>1,000人の参加者が各々1つの自然数を書きます。</li>
-    <li>ある自然数nを書いた人数がn人を<strong>超え</strong>ていれば、その自然数nは失効します。</li>
-    <li>1,000人が数字を書き終わった時に、失効しなかった最も小さな自然数を書いた人には1,000,000/n円が与えられます。(シミュレーションなので報告だけです)</li>
-</ul>
-<h1>100万円 山分け問題 解答に関する注意</h1>
-<ul>
-    <li>急ごしらえのフォームの仕様上、1人が複数人になりすまして投稿できてしまいますが、1人分までの投稿にご協力ください。</li>
-    <li>連投してもTwitterIDが同じならば前の投稿を上書きします。つまり、締め切りまでは数字を変えることができます。</li>
-    <li>締め切りは1,000人が投稿をした時です。</li>
-    <li>結果は山分けに当選した方に <a href="https://twitter.com/Iruyan_Zak">@Iruyan_Zak</a> からまとめてツイートさせていただきます。
-        当選した際にはTwitter IDを<strong>開示</strong>しますので、隠したいIDは記入されないようにお願いいたします。</li>
-    <li>エラーが発生した場合、解決しなければお手数ですが <a href="https://twitter.com/Iruyan_Zak">@Iruyan_Zak</a> までご連絡いただけると喜びます。</li>
-</ul>
     <div class="container">
-        <p>投稿済み人数： {{ hums }}人</p>
-    </div>
+        <p class="{{ text_class }}"> {{ text_contents }} </p>
+        <h1>100万円 山分け問題 ルール</h1>
+        <ul>
+            <li>1,000人の参加者が各々1つの自然数を書きます。</li>
+            <li>ある自然数nを書いた人数がn人を<strong>超え</strong>ていれば、その自然数nは失効します。</li>
+            <li>1,000人が数字を書き終わった時に、失効しなかった最も小さな自然数を書いた人には1,000,000/n円が与えられます。(シミュレーションなので報告だけです)</li>
+        </ul>
+        <h1>100万円 山分け問題 解答に関する注意</h1>
+        <ul>
+            <li>急ごしらえのフォームの仕様上、1人が複数人になりすまして投稿できてしまいますが、1人分までの投稿にご協力ください。</li>
+            <li>連投してもTwitterIDが同じならば前の投稿を上書きします。つまり、締め切りまでは数字を変えることができます。</li>
+            <li>締め切りは1,000人が投稿をした時です。</li>
+            <li>結果は山分けに当選した方に <a href="https://twitter.com/Iruyan_Zak">@Iruyan_Zak</a> からまとめてツイートさせていただきます。
+                当選した際にはTwitter IDを<strong>開示</strong>しますので、隠したいIDは記入されないようにお願いいたします。
+            </li>
+            <li>エラーが発生した場合、解決しなければお手数ですが <a href="https://twitter.com/Iruyan_Zak">@Iruyan_Zak</a> までご連絡いただけると喜びます。</li>
+        </ul>
+        <div class="container">
+            <p>投稿済み人数： {{ hums }}人</p>
+        </div>
 
-</div>
-<form name="challenge">
-    <p>
-        <label> Twitter: @
-            <input type="text" name="twitter" size="32">
-        </label>
-    </p>
-    <p>
-        <label> 自然数:
-    <input type="number" name="n" title="自然数: ">
-        </label>
-    </p>
-    <input type="submit" value="投稿する" formaction="/posted">
-</form>
+    </div>
+    <div class="well">
+        <form name="challenge">
+            <p>
+                <label class="control-label"> Twitter: @
+                    <input type="text" name="twitter" size="32">
+                </label>
+            </p>
+            <p>
+                <label class="control-label"> 自然数:
+                    <input type="number" name="n" title="自然数: ">
+                </label>
+            </p>
+            <input class="btn btn-primary" type="submit" value="投稿する" formaction="/posted">
+        </form>
+    </div>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
