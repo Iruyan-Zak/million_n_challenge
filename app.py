@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from re import compile
+from datetime import datetime
 
 
 app = Flask('million_per_n')
@@ -13,6 +14,7 @@ username_regex = compile('[^0-9a-z_]')
 class Post(db.Model):
     twitter = db.Column(db.String(32), primary_key=True)
     n = db.Column(db.Integer, nullable=False)
+    modified_at = db.Column(db.DateTime, default=datetime.now)
 
     def __init__(self, twitter: str, n: int):
         self.twitter = twitter
@@ -84,6 +86,7 @@ def posted():
         else:
             # print("レコードあり")
             post.n = n
+            post.modified_at = datetime.now()
             success_msg += f"n={n}に更新しました。"
         db.session.commit()
         # print(Post.query.filter_by(twitter=twitter).first())
