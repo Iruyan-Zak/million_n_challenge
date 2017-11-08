@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 <head>
     <meta charset="UTF-8">
-    <title>100万円 山分け問題 シミュレーション</title>
+    <title>100万円 山分け問題 シミュレーション 2回目</title>
 </head>
 <body class="no-thank-yu">
 <div class="container">
@@ -17,23 +17,270 @@
             <li>1,000人の参加者が各々1つの自然数を書きます。</li>
             <li>ある自然数nを書いた人数がn人を<strong>超え</strong>ていれば、その自然数nは失効します。</li>
             <li>1,000人が数字を書き終わった時に、失効しなかった最も小さな自然数を書いた人には1,000,000/n円が与えられます。(シミュレーションなので報告だけです)</li>
+            <li><span class="text-success">下の方に1回目の投票結果のまとめと考察を載せています！投票の参考にしてください！</span></li>
         </ul>
         <h1>100万円 山分け問題 解答に関する注意</h1>
         <ul>
-            <li>急ごしらえのフォームの仕様上、1人が複数人になりすまして投稿できてしまいますが、1人分までの投稿にご協力ください。</li>
-            <li>連投してもTwitterIDが同じならば前の投稿を上書きします。つまり、締め切りまでは数字を変えることができます。</li>
-            <li>締め切りは1,000人が投稿をした時です。</li>
+            <li>急ごしらえのフォームの仕様上、1人が複数人になりすまして投票できてしまいますが、1人分までの投票にご協力ください。</li>
+            <li>連投してもTwitterIDが同じならば前の投票を上書きします。つまり、締め切りまでは数字を変えることができます。</li>
+            <li>締め切りは1,000人が投票をした時です。</li>
             <li>結果は山分けに当選した方に <a href="https://twitter.com/Iruyan_Zak">@Iruyan_Zak</a> からまとめてツイートさせていただきます。
                 当選した際にはTwitter IDを<strong>開示</strong>しますので、隠したいIDは記入されないようにお願いいたします。
             </li>
             <li>エラーが発生した場合、解決しなければお手数ですが <a href="https://twitter.com/Iruyan_Zak">@Iruyan_Zak</a> までご連絡いただけると喜びます。</li>
         </ul>
         <div class="container">
-            <p>投稿済み人数： {{ hums }}人</p>
+            <p>投票済み人数： {{ hums }}人</p>
         </div>
 
     </div>
-    <a href="https://gist.github.com/Iruyan-Zak/c681f7732b34eb940ea3a24822019a06">集計完了しました！</a>
+
+    <div class="well">
+        <form name="challenge">
+            <p>
+                <label class="control-label"> Twitter: @
+                    <input type="text" name="twitter" size="32">
+                </label>
+            </p>
+            <p>
+                <label class="control-label"> 自然数:
+                    <input type="number" name="n" title="自然数: ">
+                </label>
+            </p>
+            <input class="btn btn-primary" type="submit" value="投票する" formaction="/posted">
+        </form>
+    </div>
+
+
+    <div>
+        <h1>1回目の投票について</h1>
+        <p class="info">当選した数は15でした！(当選者数：14人)</p>
+        <h2>当選する可能性のある最も大きな数字はいくつ？</h2>
+        <ul>
+            <li>1に2人、2に3人、・・・というように、小さい数からちょうど失効するように票を入れていくと、最終的に45に11票が入って当選します。</li>
+            <li>45以下の数に0票の数がないと仮定すると、当選する数は必ず1から45までのどれかになります。</li>
+        </ul>
+        <h2>22・23に票が集まった理由(推測)</h2>
+        <ul>
+            <li>上で言ったように、答えは1から45までのどれかだと予想されるとします。</li>
+            <li>みんながどこに投票するかわからないので、みんなが1から45に均等に票を入れたとすると、その得票数は22か23になります。</li>
+            <li>つまり、22より小さい数は失効して、22か23が当選する、ということになります。</li>
+            <li>・・・でも、そうして表が集まった結果、22と23は失効してしまいました。</li>
+        </ul>
+        <p>なお、1回目の投票結果は以下のようになりました。(50以下のみ抜粋)</p>
+
+        <div>
+            <table class="table table-striped">
+                <tr>
+                    <th>nの値</th>
+                    <th>投票人数</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <th>9</th>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td>42</td>
+                </tr>
+                <tr>
+                    <th>12</th>
+                    <td>42</td>
+                </tr>
+                <tr>
+                    <th>13</th>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <th>14</th>
+                    <td>48</td>
+                </tr>
+                <tr class="success">
+                    <th>15</th>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <th>16</th>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <th>17</th>
+                    <td>44</td>
+                </tr>
+                <tr>
+                    <th>18</th>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <th>19</th>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <th>20</th>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <th>21</th>
+                    <td>11</td>
+                </tr>
+                <tr class="info">
+                    <th>22</th>
+                    <td>31</td>
+                </tr>
+                <tr class="info">
+                    <th>23</th>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <th>24</th>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <th>25</th>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <th>26</th>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <th>27</th>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <th>28</th>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <th>29</th>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <th>30</th>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <th>31</th>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <th>32</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>33</th>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <th>34</th>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <th>35</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>36</th>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th>37</th>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <th>38</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>39</th>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th>40</th>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <th>41</th>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <th>42</th>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th>43</th>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <th>44</th>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <th>45</th>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <th>46</th>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <th>47</th>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <th>48</th>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <th>49</th>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <th>50</th>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
