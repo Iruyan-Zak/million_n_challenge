@@ -41,7 +41,7 @@ def index():
     return render_index()
 
 
-@app.route('/posted')
+# @app.route('/posted')
 def posted():
     try:
         n = int(request.args.get('n'))
